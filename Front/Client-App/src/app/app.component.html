@@ -1,9 +1,10 @@
 
-<body fxLayout= “row” >
-  <div class="menu">
+
+<mat-drawer-container class="container">
+  <mat-drawer #menu mode="side" class="menu" opened>
     <app-header></app-header>
-  </div>
-  <div class="container">
+  </mat-drawer>
+  <mat-drawer-content>
     <router-outlet></router-outlet>
-  </div>
-</body>
+  </mat-drawer-content>
+</mat-drawer-container>

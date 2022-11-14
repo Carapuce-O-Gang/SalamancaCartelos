@@ -1,5 +1,22 @@
-.header{
-    color: red;
-    background-color: yellow;
-    height: 100%;
+.profil{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 40%;
+}
+
+.profilText{
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 3%;
+}
+
+.subMenuList{
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    align-items: flex-start;
+    padding-left: 3%;
+    line-height: 50px;
 }
