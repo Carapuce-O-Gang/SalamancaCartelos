@@ -19,15 +19,16 @@ public class JwtUtils {
     private String jwtSecret;
 
     @Value("${authservice.app.jwtExpiration}")
-    private String jwtExpiration;
-    
+    private Long jwtExpiration;
+
     public String createJwt(UserProfile profile) {
         Date currentDate = new Date();
+        Date expirationDate = new Date(currentDate.getTime() + jwtExpiration);
 
         return Jwts.builder()
             .setSubject(profile.getUsername())
             .setIssuedAt(currentDate)
-            .setExpiration(new Date(currentDate.getTime() + jwtExpiration))
+            .setExpiration(expirationDate)
             .signWith(SignatureAlgorithm.HS512, jwtSecret)
             .compact();
     }
