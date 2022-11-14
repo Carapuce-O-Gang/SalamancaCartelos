@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
     @Autowired
     UserProfileService userProfileService;
-
+    
     @Autowired
     private JwtAuthenticationEntryPoint unauthorizedHandler;
 
