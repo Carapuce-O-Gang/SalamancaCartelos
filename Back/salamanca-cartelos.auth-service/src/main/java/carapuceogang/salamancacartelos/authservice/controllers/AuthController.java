@@ -48,9 +48,15 @@ public class AuthController {
 
     @PostMapping("/sign-in")
     public ResponseEntity<?> signIn(@Valid @RequestBody SignInRequest signIn) {
-        return ResponseEntity.ok(authService.signIn(
-            signIn.getUsername(),
-            signIn.getPassword()
-        ));
+        try {
+            return ResponseEntity.ok(authService.signIn(
+                    signIn.getUsername(),
+                    signIn.getPassword()
+            ));
+        }
+
+        catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

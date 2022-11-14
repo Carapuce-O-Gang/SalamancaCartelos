@@ -66,7 +66,11 @@ public class AuthService {
         return response;
     }
 
-    public AuthResponse signIn(String username, String password) {
+    public AuthResponse signIn(String username, String password) throws Exception {
+        if(!userRepository.existsByUsername(username)) {
+            throw new Exception("username doesn't exist");
+        }
+
         return this.createAuthResponse(username, password);
     }
 
