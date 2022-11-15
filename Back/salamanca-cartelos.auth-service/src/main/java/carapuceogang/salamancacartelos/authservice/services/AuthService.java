@@ -6,8 +6,6 @@ import carapuceogang.salamancacartelos.authservice.repositories.UserRepository;
 import carapuceogang.salamancacartelos.authservice.security.JwtUtils;
 import carapuceogang.salamancacartelos.authservice.security.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
