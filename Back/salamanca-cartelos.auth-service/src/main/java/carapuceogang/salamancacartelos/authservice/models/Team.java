@@ -8,12 +8,12 @@ import java.util.Set;
 
 @Entity
 @Table(
-    name = "groups",
+    name = "teams",
     uniqueConstraints = {
         @UniqueConstraint(columnNames = "name")
     }
 )
-public class Group {
+public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,19 +24,19 @@ public class Group {
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "groups_users",
-        joinColumns = @JoinColumn(name = "group_id"),
+        name = "teams_users",
+        joinColumns = @JoinColumn(name = "team_id"),
         inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private Set<User> users = new HashSet<>();
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "project_id")
     private Project project;
 
-    public Group() {}
+    public Team() {}
 
-    public Group(Long id, String name, Set<User> users, Project project) {
+    public Team(Long id, String name, Set<User> users, Project project) {
         this.id = id;
         this.name = name;
         this.users = users;

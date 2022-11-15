@@ -24,14 +24,14 @@ public class Project {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
-    private Set<Group> groups = new HashSet<>();
+    private Set<Team> teams = new HashSet<>();
 
     public Project() {}
 
-    public Project(Long id, String name, Set<Group> groups) {
+    public Project(Long id, String name, Set<Team> teams) {
         this.id = id;
         this.name = name;
-        this.groups = groups;
+        this.teams = teams;
     }
 
     public Long getId() {
@@ -50,11 +50,11 @@ public class Project {
         this.name = name;
     }
 
-    public Set<Group> getGroups() {
-        return groups;
+    public Set<Team> getGroups() {
+        return teams;
     }
 
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups;
+    public void setGroups(Set<Team> teams) {
+        this.teams = teams;
     }
 }
