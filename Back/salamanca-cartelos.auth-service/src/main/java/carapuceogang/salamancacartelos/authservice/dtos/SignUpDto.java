@@ -1,11 +1,11 @@
-package carapuceogang.salamancacartelos.authservice.models;
+package carapuceogang.salamancacartelos.authservice.dtos;
 
-public class SignUpRequest {
+public class SignUpDto {
     private String username;
     private String mail;
     private String password;
 
-    public SignUpRequest(String username, String mail, String password) {
+    public SignUpDto(String username, String mail, String password) {
         this.username = username;
         this.mail = mail;
         this.password = password;

@@ -38,7 +38,7 @@ public class ProjectService {
 
     public Project updateProject(Long id, Project project) throws Exception {
         if (id != project.getId()) {
-            throw new IllegalArgumentException("project id doesn't match");
+            throw new Exception("project id doesn't match");
         }
 
         if (!projectRepository.existsById(id)) {
@@ -48,9 +48,7 @@ public class ProjectService {
         return projectRepository.save(project);
     }
 
-    public boolean deleteProject(Long id) {
+    public void deleteProject(Long id) {
         projectRepository.deleteById(id);
-
-        return !projectRepository.existsById(id);
     }
 }

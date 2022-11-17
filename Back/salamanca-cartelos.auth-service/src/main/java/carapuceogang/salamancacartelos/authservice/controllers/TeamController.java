@@ -35,19 +35,14 @@ public class TeamController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateProject(@PathVariable Long id, @Valid @RequestBody Team team) throws Exception {
+    public ResponseEntity<?> updateTeam(@PathVariable Long id, @Valid @RequestBody Team team) throws Exception {
         Team updatedTeam = teamService.updateTeam(id, team);
         return ResponseEntity.ok(updatedTeam);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteProject(@PathVariable Long id) throws Exception{
-        boolean isDeleted = teamService.deleteTeam(id);
-
-        if (!isDeleted) {
-            throw new Exception("something went wrong");
-        }
-
+    public ResponseEntity<?> deleteTeam(@PathVariable Long id) throws Exception{
+        teamService.deleteTeam(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

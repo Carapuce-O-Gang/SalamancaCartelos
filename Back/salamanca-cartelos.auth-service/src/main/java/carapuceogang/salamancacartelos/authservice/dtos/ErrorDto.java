@@ -1,9 +1,9 @@
-package carapuceogang.salamancacartelos.authservice.models;
+package carapuceogang.salamancacartelos.authservice.dtos;
 
-public class ErrorResponse {
+public class ErrorDto {
     private String message;
 
-    public ErrorResponse(String message) {
+    public ErrorDto(String message) {
         this.message = message;
     }
 

@@ -1,5 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.services;
 
+import carapuceogang.salamancacartelos.authservice.dtos.AuthDto;
 import carapuceogang.salamancacartelos.authservice.models.*;
 import carapuceogang.salamancacartelos.authservice.repositories.RoleRepository;
 import carapuceogang.salamancacartelos.authservice.repositories.UserRepository;
@@ -36,7 +37,7 @@ public class AuthService {
     @Autowired
     JwtUtils jwtUtils;
 
-    public AuthResponse createAuthResponse(String username, String password) {
+    public AuthDto createAuthResponse(String username, String password) {
         Authentication authentication = authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(
                 username,
@@ -53,18 +54,16 @@ public class AuthService {
             .map(authority -> ERole.valueOf(authority.getAuthority()))
             .collect(Collectors.toList());
 
-        AuthResponse response = new AuthResponse(
+        return new AuthDto(
             profile.getId(),
             profile.getUsername(),
             profile.getMail(),
             roles,
             jwt
         );
-
-        return response;
     }
 
-    public AuthResponse signIn(String username, String password) throws Exception {
+    public AuthDto signIn(String username, String password) throws Exception {
         if(!userRepository.existsByUsername(username)) {
             throw new Exception("username doesn't exist");
         }
@@ -72,7 +71,7 @@ public class AuthService {
         return this.createAuthResponse(username, password);
     }
 
-    public AuthResponse signUp(String username, String mail, String password) throws Exception {
+    public AuthDto signUp(String username, String mail, String password) throws Exception {
         if(userRepository.existsByUsername(username)) {
             throw new Exception("username already taken");
         }

@@ -1,17 +1,18 @@
-package carapuceogang.salamancacartelos.authservice.models;
+package carapuceogang.salamancacartelos.authservice.dtos;
 
 import antlr.Token;
+import carapuceogang.salamancacartelos.authservice.models.ERole;
 
 import java.util.List;
 
-public class AuthResponse {
+public class AuthDto {
     private Long id;
     private String username;
     private String mail;
     private List<ERole> roles;
     private String token;
 
-    public AuthResponse(Long id, String username, String mail, List<ERole> roles, String token) {
+    public AuthDto(Long id, String username, String mail, List<ERole> roles, String token) {
         this.id = id;
         this.username = username;
         this.mail = mail;

@@ -50,11 +50,11 @@ public class Project {
         this.name = name;
     }
 
-    public Set<Team> getGroups() {
+    public Set<Team> getTeams() {
         return teams;
     }
 
-    public void setGroups(Set<Team> teams) {
+    public void setTeams(Set<Team> teams) {
         this.teams = teams;
     }
 }

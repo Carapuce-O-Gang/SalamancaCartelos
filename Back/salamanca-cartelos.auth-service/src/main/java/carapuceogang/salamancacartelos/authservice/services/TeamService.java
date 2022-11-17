@@ -5,6 +5,7 @@ import carapuceogang.salamancacartelos.authservice.repositories.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Null;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,8 +30,8 @@ public class TeamService {
 
     public Team createTeam(Team team) throws Exception {
         if(
-            teamRepository.existsByName(team.getName())
-            || teamRepository.existsById(team.getId())
+            team.getName() != null && teamRepository.existsByName(team.getName())
+            || team.getId() != null && teamRepository.existsById(team.getId())
         ) {
             throw new Exception("team already taken");
         }
@@ -50,9 +51,7 @@ public class TeamService {
         return teamRepository.save(team);
     }
 
-    public boolean deleteTeam(Long id) {
+    public void deleteTeam(Long id) {
         teamRepository.deleteById(id);
-
-        return !teamRepository.existsById(id);
     }
 }

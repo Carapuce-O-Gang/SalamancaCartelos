@@ -1,6 +1,7 @@
 package carapuceogang.salamancacartelos.authservice.controllers;
 
-import carapuceogang.salamancacartelos.authservice.models.*;
+import carapuceogang.salamancacartelos.authservice.dtos.SignInDto;
+import carapuceogang.salamancacartelos.authservice.dtos.SignUpDto;
 import carapuceogang.salamancacartelos.authservice.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ public class AuthController {
     AuthService authService;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<?> signUp(@Valid @RequestBody SignUpRequest signUp) throws Exception {
+    public ResponseEntity<?> signUp(@Valid @RequestBody SignUpDto signUp) throws Exception {
         return ResponseEntity.ok(authService.signUp(
             signUp.getUsername(),
             signUp.getMail(),
@@ -24,7 +25,7 @@ public class AuthController {
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<?> signIn(@Valid @RequestBody SignInRequest signIn) throws Exception {
+    public ResponseEntity<?> signIn(@Valid @RequestBody SignInDto signIn) throws Exception {
         return ResponseEntity.ok(authService.signIn(
                 signIn.getUsername(),
                 signIn.getPassword()

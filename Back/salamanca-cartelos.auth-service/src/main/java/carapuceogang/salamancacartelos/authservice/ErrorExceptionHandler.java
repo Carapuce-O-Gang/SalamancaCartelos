@@ -1,6 +1,6 @@
 package carapuceogang.salamancacartelos.authservice;
 
-import carapuceogang.salamancacartelos.authservice.models.ErrorResponse;
+import carapuceogang.salamancacartelos.authservice.dtos.ErrorDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,9 +11,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @ControllerAdvice
 public class ErrorExceptionHandler extends ResponseEntityExceptionHandler {
-    @ExceptionHandler
+    @ExceptionHandler(value = { Exception.class })
     protected ResponseEntity<Object> handleException(RuntimeException e, WebRequest request) {
-        ErrorResponse error = new ErrorResponse(e.getMessage());
+        ErrorDto error = new ErrorDto(e.getMessage());
         return handleExceptionInternal(e, error, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 }
