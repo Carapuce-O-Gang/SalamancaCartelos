@@ -21,23 +21,27 @@ public class ProjectService {
     public Project getProject(Long id) throws Exception {
         Optional<Project> project = projectRepository.findById(id);
 
-        if(!project.isPresent()) {
+        if (!project.isPresent()) {
             throw new Exception("project doesn't exist");
         }
 
         return project.get();
     }
 
-    public Project createProject(Project project) {
+    public Project createProject(Project project) throws Exception {
+        if (project.getId() != null && projectRepository.existsById(project.getId())) {
+            throw new Exception("project already exist");
+        }
+
         return projectRepository.save(project);
     }
 
     public Project updateProject(Long id, Project project) throws Exception {
-        if(id != project.getId()) {
+        if (id != project.getId()) {
             throw new IllegalArgumentException("project id doesn't match");
         }
 
-        if(!projectRepository.existsById(id)) {
+        if (!projectRepository.existsById(id)) {
             throw new Exception("project doesn't exist");
         }
 
