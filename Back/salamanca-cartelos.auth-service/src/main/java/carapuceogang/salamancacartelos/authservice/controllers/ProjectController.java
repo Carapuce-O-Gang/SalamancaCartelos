@@ -1,8 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.controllers;
 
-import carapuceogang.salamancacartelos.authservice.models.ErrorResponse;
 import carapuceogang.salamancacartelos.authservice.models.Project;
-import carapuceogang.salamancacartelos.authservice.models.SignUpRequest;
 import carapuceogang.salamancacartelos.authservice.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,54 +23,31 @@ public class ProjectController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getProject(@PathVariable Long id) {
-        try {
-            Project project = projectService.getProject(id);
-            return ResponseEntity.ok(project);
-        } catch (Exception e) {
-            ErrorResponse error = new ErrorResponse(e.getMessage());
-            return ResponseEntity
-                .badRequest()
-                .body(error);
-        }
+    public ResponseEntity<?> getProject(@PathVariable Long id) throws Exception {
+        Project project = projectService.getProject(id);
+        return ResponseEntity.ok(project);
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> createProject(@Valid @RequestBody Project project) {
-        try {
-            Project savedProject = projectService.createProject(project);
-            return ResponseEntity.ok(savedProject);
-
-        } catch (Exception e) {
-            ErrorResponse error = new ErrorResponse(e.getMessage());
-            return ResponseEntity
-                .badRequest()
-                .body(error);
-        }
+    public ResponseEntity<?> createProject(@Valid @RequestBody Project project) throws Exception {
+        Project savedProject = projectService.createProject(project);
+        return ResponseEntity.ok(savedProject);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateProject(@PathVariable Long id, @Valid @RequestBody Project project) {
-        try {
-            Project updatedProject = projectService.updateProject(id, project);
-            return ResponseEntity.ok(updatedProject);
-        } catch (Exception e) {
-            ErrorResponse error = new ErrorResponse(e.getMessage());
-            return ResponseEntity
-                .badRequest()
-                .body(error);
-        }
+    public ResponseEntity<?> updateProject(@PathVariable Long id, @Valid @RequestBody Project project) throws Exception {
+        Project updatedProject = projectService.updateProject(id, project);
+        return ResponseEntity.ok(updatedProject);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteProject(@PathVariable Long id) {
-        if(projectService.deleteProject(id)) {
-            return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity<?> deleteProject(@PathVariable Long id) throws Exception {
+        boolean isDeleted = projectService.deleteProject(id);
+
+        if (!isDeleted) {
+            throw new Exception("something went wrong");
         }
 
-        else {
-            ErrorResponse error = new ErrorResponse("something went wrong");
-            return ResponseEntity.badRequest().body(error);
-        }
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
