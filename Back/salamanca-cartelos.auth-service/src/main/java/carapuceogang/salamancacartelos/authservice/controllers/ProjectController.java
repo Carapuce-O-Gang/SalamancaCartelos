@@ -65,8 +65,14 @@ public class ProjectController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteProject(@PathVariable Long id) {
-        projectService.deleteProject(id);
-        return new ResponseEntity(HttpStatus.OK);
+    public ResponseEntity<?> deleteProject(@PathVariable Long id) {
+        if(projectService.deleteProject(id)) {
+            return new ResponseEntity(HttpStatus.OK);
+        }
+
+        else {
+            ErrorResponse error = new ErrorResponse("something went wrong");
+            return ResponseEntity.badRequest().body(error);
+        }
     }
 }

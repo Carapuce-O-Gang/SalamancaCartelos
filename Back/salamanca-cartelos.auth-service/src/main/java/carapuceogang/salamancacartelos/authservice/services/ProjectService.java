@@ -48,7 +48,9 @@ public class ProjectService {
         return projectRepository.save(project);
     }
 
-    public void deleteProject(Long id) {
+    public boolean deleteProject(Long id) {
         projectRepository.deleteById(id);
+
+        return !projectRepository.existsById(id);
     }
 }
