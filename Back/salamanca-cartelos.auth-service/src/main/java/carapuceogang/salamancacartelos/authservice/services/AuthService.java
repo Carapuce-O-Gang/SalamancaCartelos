@@ -1,6 +1,8 @@
 package carapuceogang.salamancacartelos.authservice.services;
 
 import carapuceogang.salamancacartelos.authservice.dtos.AuthDto;
+import carapuceogang.salamancacartelos.authservice.dtos.SignInDto;
+import carapuceogang.salamancacartelos.authservice.dtos.SignUpDto;
 import carapuceogang.salamancacartelos.authservice.models.*;
 import carapuceogang.salamancacartelos.authservice.repositories.RoleRepository;
 import carapuceogang.salamancacartelos.authservice.repositories.UserRepository;
@@ -63,33 +65,36 @@ public class AuthService {
         );
     }
 
-    public AuthDto signIn(String username, String password) throws Exception {
-        if(!userRepository.existsByUsername(username)) {
+    public AuthDto signIn(SignInDto signInDto) throws Exception {
+        if(!userRepository.existsByUsername(signInDto.getUsername())) {
             throw new Exception("username doesn't exist");
         }
 
-        return this.createAuthResponse(username, password);
+        return this.createAuthResponse(
+            signInDto.getUsername(),
+            signInDto.getPassword()
+        );
     }
 
-    public AuthDto signUp(String username, String mail, String password) throws Exception {
-        if(userRepository.existsByUsername(username)) {
+    public AuthDto signUp(SignUpDto signUpDto) throws Exception {
+        if(userRepository.existsByUsername(signUpDto.getUsername())) {
             throw new Exception("username already taken");
         }
 
-        if(userRepository.existsByMail(mail)) {
+        if(userRepository.existsByMail(signUpDto.getMail())) {
             throw new Exception("mail address already taken");
         }
 
         User user = new User(
-            username,
-            mail,
-            passwordEncoder.encode(password)
+            signUpDto.getUsername(),
+            signUpDto.getMail(),
+            passwordEncoder.encode(signUpDto.getPassword())
         );
 
         Set<Role> roles = new HashSet<Role>();
         Optional<Role> userRole = roleRepository.findByName(ERole.ROLE_USER);
 
-        if(!userRole.isPresent()) {
+        if(userRole.isEmpty()) {
             throw new Exception("user role error :(");
         }
 
@@ -98,6 +103,13 @@ public class AuthService {
 
         userRepository.save(user);
 
-        return this.createAuthResponse(username, password);
+        return this.createAuthResponse(
+            signUpDto.getUsername(),
+            signUpDto.getPassword()
+        );
+    }
+
+    public void signOut() {
+        // to do ...
     }
 }

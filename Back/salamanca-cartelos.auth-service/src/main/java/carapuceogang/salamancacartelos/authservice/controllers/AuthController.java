@@ -16,24 +16,17 @@ public class AuthController {
     AuthService authService;
 
     @PostMapping("/sign-up")
-    public ResponseEntity<?> signUp(@Valid @RequestBody SignUpDto signUp) throws Exception {
-        return ResponseEntity.ok(authService.signUp(
-            signUp.getUsername(),
-            signUp.getMail(),
-            signUp.getPassword()
-        ));
+    public ResponseEntity<?> signUp(@Valid @RequestBody SignUpDto signUpDto) throws Exception {
+        return ResponseEntity.ok(authService.signUp(signUpDto));
     }
 
     @PostMapping("/sign-in")
-    public ResponseEntity<?> signIn(@Valid @RequestBody SignInDto signIn) throws Exception {
-        return ResponseEntity.ok(authService.signIn(
-                signIn.getUsername(),
-                signIn.getPassword()
-        ));
+    public ResponseEntity<?> signIn(@Valid @RequestBody SignInDto signInDto) throws Exception {
+        return ResponseEntity.ok(authService.signIn(signInDto));
     }
 
-    //@GetMapping("/sign-out")
+    @GetMapping("/sign-out")
     public void signOut() {
-        // to implement ...
+        authService.signOut();
     }
 }

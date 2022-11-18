@@ -1,5 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.controllers;
 
+import carapuceogang.salamancacartelos.authservice.dtos.ProjectDto;
 import carapuceogang.salamancacartelos.authservice.models.Project;
 import carapuceogang.salamancacartelos.authservice.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,14 @@ public class ProjectController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> createProject(@Valid @RequestBody Project project) throws Exception {
-        Project savedProject = projectService.createProject(project);
+    public ResponseEntity<?> createProject(@Valid @RequestBody ProjectDto projectDto) throws Exception {
+        Project savedProject = projectService.createProject(projectDto);
         return ResponseEntity.ok(savedProject);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateProject(@PathVariable Long id, @Valid @RequestBody Project project) throws Exception {
-        Project updatedProject = projectService.updateProject(id, project);
+    public ResponseEntity<?> updateProject(@PathVariable Long id, @Valid @RequestBody ProjectDto projectDto) throws Exception {
+        Project updatedProject = projectService.updateProject(id, projectDto);
         return ResponseEntity.ok(updatedProject);
     }
 

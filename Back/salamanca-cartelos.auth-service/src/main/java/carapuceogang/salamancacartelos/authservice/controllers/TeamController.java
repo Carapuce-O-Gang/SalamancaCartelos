@@ -1,5 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.controllers;
 
+import carapuceogang.salamancacartelos.authservice.dtos.TeamDto;
 import carapuceogang.salamancacartelos.authservice.models.Team;
 import carapuceogang.salamancacartelos.authservice.services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +30,14 @@ public class TeamController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> createTeam(@Valid @RequestBody Team team) throws Exception {
-        Team savedTeam = teamService.createTeam(team);
+    public ResponseEntity<?> createTeam(@Valid @RequestBody TeamDto teamDto) throws Exception {
+        Team savedTeam = teamService.createTeam(teamDto);
         return ResponseEntity.ok(savedTeam);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateTeam(@PathVariable Long id, @Valid @RequestBody Team team) throws Exception {
-        Team updatedTeam = teamService.updateTeam(id, team);
+    public ResponseEntity<?> updateTeam(@PathVariable Long id, @Valid @RequestBody TeamDto teamDto) throws Exception {
+        Team updatedTeam = teamService.updateTeam(id, teamDto);
         return ResponseEntity.ok(updatedTeam);
     }
 
