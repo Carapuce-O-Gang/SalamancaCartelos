@@ -6,7 +6,6 @@ import carapuceogang.salamancacartelos.authservice.repositories.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.validation.constraints.Null;
 import java.util.List;
 import java.util.Optional;
 

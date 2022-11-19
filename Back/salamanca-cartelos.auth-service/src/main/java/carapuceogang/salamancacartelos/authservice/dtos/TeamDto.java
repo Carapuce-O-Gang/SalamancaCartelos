@@ -10,8 +10,10 @@ public class TeamDto {
     private Set<User> users;
     private Project project;
 
-    public TeamDto(String name) {
+    public TeamDto(String name, Set<User> users, Project project) {
         this.name = name;
+        this.users = users;
+        this.project = project;
     }
 
     public String getName() {
