@@ -1,12 +1,11 @@
 package carapuceogang.salamancacartelos.authservice.dtos;
 
 import carapuceogang.salamancacartelos.authservice.models.Team;
-import java.util.HashSet;
 import java.util.Set;
 
 public class ProjectDto {
     private String name;
-    private Set<Team> teams = new HashSet<>();
+    private Set<Team> teams;
 
     public ProjectDto(String name, Set<Team> teams) {
         this.name = name;

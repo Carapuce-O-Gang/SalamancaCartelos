@@ -1,9 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.security;
 
-import carapuceogang.salamancacartelos.authservice.models.User;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 

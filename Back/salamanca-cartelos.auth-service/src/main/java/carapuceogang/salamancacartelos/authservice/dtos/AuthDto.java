@@ -1,8 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.dtos;
 
-import antlr.Token;
 import carapuceogang.salamancacartelos.authservice.models.ERole;
-
 import java.util.List;
 
 public class AuthDto {

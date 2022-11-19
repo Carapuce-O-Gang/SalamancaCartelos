@@ -5,7 +5,6 @@ import carapuceogang.salamancacartelos.authservice.models.Project;
 import carapuceogang.salamancacartelos.authservice.repositories.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 

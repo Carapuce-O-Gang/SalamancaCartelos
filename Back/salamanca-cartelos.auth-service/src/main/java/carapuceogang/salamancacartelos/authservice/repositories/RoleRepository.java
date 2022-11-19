@@ -2,7 +2,6 @@ package carapuceogang.salamancacartelos.authservice.repositories;
 
 import carapuceogang.salamancacartelos.authservice.models.ERole;
 import carapuceogang.salamancacartelos.authservice.models.Role;
-import carapuceogang.salamancacartelos.authservice.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
