@@ -2,9 +2,9 @@ package salamancacartelos.proposalsservice.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import salamancacartelos.proposalsservice.models.Proposal;
+import salamancacartelos.proposalsservice.models.Vote;
 
 @Repository
-public interface ProposalRepository extends JpaRepository<Proposal, Long> {
+public interface VoteRepository extends JpaRepository<Vote, Long> {
     boolean existsById(Long id);
 }
