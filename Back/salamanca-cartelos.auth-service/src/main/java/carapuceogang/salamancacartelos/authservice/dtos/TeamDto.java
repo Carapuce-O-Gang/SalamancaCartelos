@@ -1,19 +1,21 @@
 package carapuceogang.salamancacartelos.authservice.dtos;
 
-import carapuceogang.salamancacartelos.authservice.models.Project;
 import carapuceogang.salamancacartelos.authservice.models.User;
 
 import java.util.Set;
 
 public class TeamDto {
+    private Long id;
     private String name;
     private Set<User> users;
-    private Project project;
+    private ProjectDto project;
 
-    public TeamDto(String name, Set<User> users, Project project) {
-        this.name = name;
-        this.users = users;
-        this.project = project;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -32,11 +34,11 @@ public class TeamDto {
         this.users = users;
     }
 
-    public Project getProject() {
+    public ProjectDto getProject() {
         return project;
     }
 
-    public void setProject(Project project) {
+    public void setProject(ProjectDto project) {
         this.project = project;
     }
 }
