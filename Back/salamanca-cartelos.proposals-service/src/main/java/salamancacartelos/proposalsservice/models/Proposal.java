@@ -14,19 +14,11 @@ public class Proposal {
 
     @NotBlank
     @Min(value = 1)
-<<<<<<< HEAD
-    private Integer userId;
-
-    @NotBlank
-    @Min(value = 1)
-    private Integer projectId;
-=======
     private Long userId;
 
     @NotBlank
     @Min(value = 1)
     private Long projectId;
->>>>>>> develop
 
     @NotBlank
     @Size(max = 256)
@@ -37,11 +29,7 @@ public class Proposal {
 
     public Proposal() {}
 
-<<<<<<< HEAD
-    public Proposal(Integer userId, Integer projectId, String title, String content) {
-=======
     public Proposal(Long userId, Long projectId, String title, String content) {
->>>>>>> develop
         this.userId = userId;
         this.projectId = projectId;
         this.title = title;
@@ -56,21 +44,6 @@ public class Proposal {
         this.id = id;
     }
 
-<<<<<<< HEAD
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public Integer getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Integer projectId) {
-=======
     public Long getUserId() {
         return userId;
     }
@@ -84,7 +57,6 @@ public class Proposal {
     }
 
     public void setProjectId(Long projectId) {
->>>>>>> develop
         this.projectId = projectId;
     }
 

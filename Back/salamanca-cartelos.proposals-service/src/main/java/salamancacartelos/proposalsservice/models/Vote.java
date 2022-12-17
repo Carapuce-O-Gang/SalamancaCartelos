@@ -13,22 +13,14 @@ public class Vote {
 
     @NotBlank
     @Min(value = 1)
-<<<<<<< HEAD
-    private Integer userId;
-=======
     private Long userId;
->>>>>>> develop
 
     @NotBlank
     private Boolean isVoted;
 
     public Vote() {}
 
-<<<<<<< HEAD
-    public Vote(Integer userId, Boolean isVoted) {
-=======
     public Vote(Long userId, Boolean isVoted) {
->>>>>>> develop
         this.userId = userId;
         this.isVoted = isVoted;
     }
@@ -41,19 +33,11 @@ public class Vote {
         this.id = id;
     }
 
-<<<<<<< HEAD
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-=======
     public Long getUserId() {
         return userId;
     }
 
     public void setUserId(Long userId) {
->>>>>>> develop
         this.userId = userId;
     }
 

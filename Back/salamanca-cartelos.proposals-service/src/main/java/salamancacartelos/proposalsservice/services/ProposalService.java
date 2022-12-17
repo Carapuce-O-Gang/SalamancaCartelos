@@ -2,18 +2,12 @@ package salamancacartelos.proposalsservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-<<<<<<< HEAD
-=======
 import salamancacartelos.proposalsservice.dtos.ProposalDto;
->>>>>>> develop
 import salamancacartelos.proposalsservice.models.Proposal;
 import salamancacartelos.proposalsservice.repositories.ProposalRepository;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.Optional;
->>>>>>> develop
 
 @Service
 public class ProposalService {
@@ -23,8 +17,6 @@ public class ProposalService {
     public List<Proposal> getProposals() {
         return proposalRepository.findAll();
     }
-<<<<<<< HEAD
-=======
 
     public Proposal getProposal(Long id) throws Exception {
         Optional<Proposal> proposal = proposalRepository.findById(id);
@@ -69,5 +61,4 @@ public class ProposalService {
     public void deleteProposal(Long id) {
         proposalRepository.deleteById(id);
     }
->>>>>>> develop
 }

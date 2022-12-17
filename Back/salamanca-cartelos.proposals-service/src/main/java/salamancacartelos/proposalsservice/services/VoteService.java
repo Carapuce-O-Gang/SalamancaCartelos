@@ -2,19 +2,12 @@ package salamancacartelos.proposalsservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-<<<<<<< HEAD
-import salamancacartelos.proposalsservice.models.Discuss;
-=======
 import salamancacartelos.proposalsservice.dtos.VoteDto;
->>>>>>> develop
 import salamancacartelos.proposalsservice.models.Vote;
 import salamancacartelos.proposalsservice.repositories.VoteRepository;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
 import java.util.Optional;
->>>>>>> develop
 
 @Service
 public class VoteService {
@@ -24,8 +17,6 @@ public class VoteService {
     public List<Vote> getVotes() {
         return voteRepository.findAll();
     }
-<<<<<<< HEAD
-=======
 
     public Vote getVote(Long id) throws Exception {
         Optional<Vote> vote = voteRepository.findById(id);
@@ -70,5 +61,4 @@ public class VoteService {
     public void deleteVote(Long id) {
         voteRepository.deleteById(id);
     }
->>>>>>> develop
 }

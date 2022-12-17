@@ -14,22 +14,14 @@ public class Discuss {
 
     @NotBlank
     @Min(value = 1)
-<<<<<<< HEAD
-    private Integer userId;
-=======
     private Long userId;
->>>>>>> develop
 
     @NotBlank
     private String message;
 
     public Discuss() {}
 
-<<<<<<< HEAD
-    public Discuss(Integer userId, String message) {
-=======
     public Discuss(Long userId, String message) {
->>>>>>> develop
         this.userId = userId;
         this.message = message;
     }
@@ -42,19 +34,11 @@ public class Discuss {
         this.id = id;
     }
 
-<<<<<<< HEAD
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-=======
     public Long getUserId() {
         return userId;
     }
 
     public void setUserId(Long userId) {
->>>>>>> develop
         this.userId = userId;
     }
 

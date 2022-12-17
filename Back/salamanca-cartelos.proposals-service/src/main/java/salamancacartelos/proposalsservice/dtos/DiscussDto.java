@@ -1,8 +1,6 @@
 package salamancacartelos.proposalsservice.dtos;
 
 public class DiscussDto {
-<<<<<<< HEAD
-=======
     private Long userId;
     private String message;
 
@@ -26,5 +24,4 @@ public class DiscussDto {
     public void setMessage(String message) {
         this.message = message;
     }
->>>>>>> develop
 }

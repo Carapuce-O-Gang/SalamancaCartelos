@@ -1,30 +1,20 @@
 package salamancacartelos.proposalsservice.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import salamancacartelos.proposalsservice.services.VoteService;
-
-=======
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import salamancacartelos.proposalsservice.models.Vote;
-import salamancacartelos.proposalsservice.services.VoteService;
 
 import java.util.List;
-
->>>>>>> develop
 @RestController
 @RequestMapping("/api/vote")
 public class VoteController {
     @Autowired
     VoteService voteService;
-<<<<<<< HEAD
-=======
 
     @GetMapping("/")
     public ResponseEntity<List<Vote>> getVotes() {
@@ -37,5 +27,4 @@ public class VoteController {
         Vote vote = voteService.getVote(id);
         return ResponseEntity.ok(vote);
     }
->>>>>>> develop
 }

@@ -1,10 +1,5 @@
 package salamancacartelos.proposalsservice.dtos;
 
-<<<<<<< HEAD
-public class VoteDto {
-=======
-import javax.validation.constraints.NotBlank;
-
 public class VoteDto {
     private Long userId;
     private Boolean isVoted;
@@ -29,5 +24,4 @@ public class VoteDto {
     public void setVoted(Boolean voted) {
         isVoted = voted;
     }
->>>>>>> develop
 }
