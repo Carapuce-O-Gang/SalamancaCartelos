@@ -3,63 +3,79 @@ package carapuceogang.salamancacartelos.authservice.services;
 import carapuceogang.salamancacartelos.authservice.dtos.TeamDto;
 import carapuceogang.salamancacartelos.authservice.models.Team;
 import carapuceogang.salamancacartelos.authservice.repositories.TeamRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TeamService {
     @Autowired
     TeamRepository teamRepository;
 
-    public List<Team> getTeams() {
-        return teamRepository.findAll();
+    @Autowired
+    ModelMapper modelMapper;
+
+    public List<TeamDto> getTeams() {
+        return toList(teamRepository.findAll());
     }
 
-    public Team getTeam(Long id) throws Exception {
+    public TeamDto getTeam(Long id) throws Exception {
         Optional<Team> team = teamRepository.findById(id);
 
         if(team.isEmpty()) {
             throw new Exception("team doesn't exist");
         }
 
-        return team.get();
+        return toDto(team.get());
     }
 
-    public Team createTeam(TeamDto teamDto) throws Exception {
-        if(teamDto.getName() != null && teamRepository.existsByName(teamDto.getName())) {
+    public TeamDto createTeam(TeamDto team) throws Exception {
+        if(team.getName() != null && teamRepository.existsByName(team.getName())) {
             throw new Exception("team already taken");
         }
 
-        Team team = new Team();
-        team.setName(teamDto.getName());
-        team.setUsers(teamDto.getUsers());
-        team.setProject(teamDto.getProject());
+        Team savedTeam = teamRepository.save(toModel(team));
 
-        return teamRepository.save(team);
+        return toDto(savedTeam);
     }
 
-    public Team updateTeam(Long id, TeamDto teamDto) throws Exception {
+    public TeamDto updateTeam(Long id, TeamDto team) throws Exception {
+        if (!Objects.equals(id, team.getId())) {
+            throw new Exception("id doesn't match");
+        }
+
         if (!teamRepository.existsById(id)) {
             throw new Exception("team doesn't exist");
         }
 
         Optional<Team> t = teamRepository.findById(id);
-
         if(t.isEmpty()) {
             throw new Exception("team doesn't exist");
         }
 
-        Team team = t.get();
-        team.setName(teamDto.getName());
-        team.setUsers(teamDto.getUsers());
-        team.setProject(teamDto.getProject());
+        Team updatedTeam = teamRepository.save(toModel(team));
 
-        return teamRepository.save(team);
+        return toDto(updatedTeam);
     }
 
     public void deleteTeam(Long id) {
         teamRepository.deleteById(id);
+    }
+
+    // Mapping
+    public List<TeamDto> toList(List<Team> teams) {
+        return MappingService.map(teams, TeamDto.class, modelMapper);
+    }
+
+    public TeamDto toDto(Team team) {
+        return MappingService.map(team, TeamDto.class, modelMapper);
+    }
+
+    public Team toModel(TeamDto team) {
+        return MappingService.map(team, Team.class, modelMapper);
     }
 }

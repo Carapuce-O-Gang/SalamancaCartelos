@@ -18,26 +18,26 @@ public class TeamController {
     TeamService teamService;
 
     @GetMapping("/")
-    public ResponseEntity<List<Team>> getTeams() {
-        List<Team> teams = teamService.getTeams();
+    public ResponseEntity<List<TeamDto>> getTeams() {
+        List<TeamDto> teams = teamService.getTeams();
         return ResponseEntity.ok(teams);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTeam(@PathVariable Long id) throws Exception {
-        Team team = teamService.getTeam(id);
+        TeamDto team = teamService.getTeam(id);
         return ResponseEntity.ok(team);
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> createTeam(@Valid @RequestBody TeamDto teamDto) throws Exception {
-        Team savedTeam = teamService.createTeam(teamDto);
+    public ResponseEntity<?> createTeam(@Valid @RequestBody TeamDto team) throws Exception {
+        TeamDto savedTeam = teamService.createTeam(team);
         return ResponseEntity.ok(savedTeam);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateTeam(@PathVariable Long id, @Valid @RequestBody TeamDto teamDto) throws Exception {
-        Team updatedTeam = teamService.updateTeam(id, teamDto);
+    public ResponseEntity<?> updateTeam(@PathVariable Long id, @Valid @RequestBody TeamDto team) throws Exception {
+        TeamDto updatedTeam = teamService.updateTeam(id, team);
         return ResponseEntity.ok(updatedTeam);
     }
 

@@ -3,9 +3,11 @@ package carapuceogang.salamancacartelos.authservice.services;
 import carapuceogang.salamancacartelos.authservice.dtos.ProjectDto;
 import carapuceogang.salamancacartelos.authservice.models.Project;
 import carapuceogang.salamancacartelos.authservice.repositories.ProjectRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -14,51 +16,66 @@ public class ProjectService {
     @Autowired
     ProjectRepository projectRepository;
 
-    public List<Project> getProjects() {
-        return projectRepository.findAll();
+    @Autowired
+    ModelMapper modelMapper;
+
+    public List<ProjectDto> getProjects() {
+        return toList(projectRepository.findAll());
     }
 
-    public Project getProject(Long id) throws Exception {
+    public ProjectDto getProject(Long id) throws Exception {
         Optional<Project> project = projectRepository.findById(id);
 
         if (project.isEmpty()) {
             throw new Exception("project doesn't exist");
         }
 
-        return project.get();
+        return toDto(project.get());
     }
 
-    public Project createProject(ProjectDto projectDto) throws Exception {
-        if (projectDto.getName() != null && projectRepository.existsByName(projectDto.getName())) {
+    public ProjectDto createProject(ProjectDto project) throws Exception {
+        if (project.getName() != null && projectRepository.existsByName(project.getName())) {
             throw new Exception("project name already exist");
         }
 
-        Project project = new Project();
-        project.setName(projectDto.getName());
-        project.setTeams(projectDto.getTeams());
+        Project savedProject = projectRepository.save(toModel(project));
 
-        return projectRepository.save(project);
+        return toDto(savedProject);
     }
 
-    public Project updateProject(Long id, ProjectDto projectDto) throws Exception {
+    public ProjectDto updateProject(Long id, ProjectDto project) throws Exception {
+        if (!Objects.equals(id, project.getId())) {
+            throw new Exception("id doesn't match");
+        }
+
         if (!projectRepository.existsById(id)) {
             throw new Exception("project doesn't exist");
         }
 
         Optional<Project> p = projectRepository.findById(id);
-
         if (p.isEmpty()) {
             throw new Exception("project doesn't exist");
         }
 
-        Project project = p.get();
-        project.setName(projectDto.getName());
-        project.setTeams(projectDto.getTeams());
+        Project updatedProject = projectRepository.save(toModel(project));
 
-        return projectRepository.save(project);
+        return toDto(updatedProject);
     }
 
     public void deleteProject(Long id) {
         projectRepository.deleteById(id);
+    }
+
+    // Mapping
+    public List<ProjectDto> toList(List<Project> projects) {
+        return MappingService.map(projects, ProjectDto.class, modelMapper);
+    }
+
+    public ProjectDto toDto(Project project) {
+        return  MappingService.map(project, ProjectDto.class, modelMapper);
+    }
+
+    public Project toModel(ProjectDto project) {
+        return  MappingService.map(project, Project.class, modelMapper);
     }
 }

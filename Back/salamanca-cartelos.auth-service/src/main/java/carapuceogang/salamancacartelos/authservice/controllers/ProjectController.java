@@ -18,26 +18,26 @@ public class ProjectController {
     ProjectService projectService;
 
     @GetMapping("/")
-    public ResponseEntity<List<Project>> getProjects() {
-        List<Project> projects = projectService.getProjects();
+    public ResponseEntity<List<ProjectDto>> getProjects() {
+        List<ProjectDto> projects = projectService.getProjects();
         return ResponseEntity.ok(projects);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getProject(@PathVariable Long id) throws Exception {
-        Project project = projectService.getProject(id);
+        ProjectDto project = projectService.getProject(id);
         return ResponseEntity.ok(project);
     }
 
     @PostMapping("/")
-    public ResponseEntity<?> createProject(@Valid @RequestBody ProjectDto projectDto) throws Exception {
-        Project savedProject = projectService.createProject(projectDto);
+    public ResponseEntity<?> createProject(@Valid @RequestBody ProjectDto project) throws Exception {
+        ProjectDto savedProject = projectService.createProject(project);
         return ResponseEntity.ok(savedProject);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateProject(@PathVariable Long id, @Valid @RequestBody ProjectDto projectDto) throws Exception {
-        Project updatedProject = projectService.updateProject(id, projectDto);
+    public ResponseEntity<?> updateProject(@PathVariable Long id, @Valid @RequestBody ProjectDto project) throws Exception {
+        ProjectDto updatedProject = projectService.updateProject(id, project);
         return ResponseEntity.ok(updatedProject);
     }
 
