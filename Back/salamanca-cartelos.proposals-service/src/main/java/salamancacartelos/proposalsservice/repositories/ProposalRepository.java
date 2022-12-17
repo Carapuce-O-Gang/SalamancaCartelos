@@ -7,4 +7,5 @@ import salamancacartelos.proposalsservice.models.Proposal;
 @Repository
 public interface ProposalRepository extends JpaRepository<Proposal, Long> {
     boolean existsById(Long id);
+    boolean existsByTitle(String title);
 }

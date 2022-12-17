@@ -7,4 +7,5 @@ import salamancacartelos.proposalsservice.models.Vote;
 @Repository
 public interface VoteRepository extends JpaRepository<Vote, Long> {
     boolean existsById(Long id);
+    boolean existsByUserId(Long userId);
 }

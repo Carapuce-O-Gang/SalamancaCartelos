@@ -14,14 +14,14 @@ public class Discuss {
 
     @NotBlank
     @Min(value = 1)
-    private Integer userId;
+    private Long userId;
 
     @NotBlank
     private String message;
 
     public Discuss() {}
 
-    public Discuss(Integer userId, String message) {
+    public Discuss(Long userId, String message) {
         this.userId = userId;
         this.message = message;
     }
@@ -34,11 +34,11 @@ public class Discuss {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

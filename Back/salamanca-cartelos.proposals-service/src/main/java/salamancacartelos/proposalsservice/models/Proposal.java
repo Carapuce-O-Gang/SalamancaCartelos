@@ -14,11 +14,11 @@ public class Proposal {
 
     @NotBlank
     @Min(value = 1)
-    private Integer userId;
+    private Long userId;
 
     @NotBlank
     @Min(value = 1)
-    private Integer projectId;
+    private Long projectId;
 
     @NotBlank
     @Size(max = 256)
@@ -29,7 +29,7 @@ public class Proposal {
 
     public Proposal() {}
 
-    public Proposal(Integer userId, Integer projectId, String title, String content) {
+    public Proposal(Long userId, Long projectId, String title, String content) {
         this.userId = userId;
         this.projectId = projectId;
         this.title = title;
@@ -44,19 +44,19 @@ public class Proposal {
         this.id = id;
     }
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getProjectId() {
+    public Long getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(Integer projectId) {
+    public void setProjectId(Long projectId) {
         this.projectId = projectId;
     }
 
