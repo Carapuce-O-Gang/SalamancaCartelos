@@ -1,5 +1,7 @@
 package carapuceogang.salamancacartelos.authservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -13,6 +15,7 @@ import java.util.Set;
         @UniqueConstraint(columnNames = "name")
     }
 )
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "project" })
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +27,7 @@ public class Team {
 
     @ManyToMany(
         fetch = FetchType.LAZY,
-        cascade = CascadeType.PERSIST
+        cascade = CascadeType.MERGE
     )
     @JoinTable(
         name = "teams_users",
@@ -33,7 +36,7 @@ public class Team {
     )
     private Set<User> users = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
 
@@ -68,6 +71,14 @@ public class Team {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
+    }
+
+    public void removeUser(User user) {
+        this.users.remove(user);
     }
 
     public Project getProject() {

@@ -2,7 +2,9 @@ package carapuceogang.salamancacartelos.authservice.services;
 
 import carapuceogang.salamancacartelos.authservice.dtos.TeamDto;
 import carapuceogang.salamancacartelos.authservice.models.Team;
+import carapuceogang.salamancacartelos.authservice.models.User;
 import carapuceogang.salamancacartelos.authservice.repositories.TeamRepository;
+import carapuceogang.salamancacartelos.authservice.repositories.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,8 @@ public class TeamService {
 
     @Autowired
     ModelMapper modelMapper;
+    @Autowired
+    private UserRepository userRepository;
 
     public List<TeamDto> getTeams() {
         return toList(teamRepository.findAll());
@@ -64,6 +68,44 @@ public class TeamService {
 
     public void deleteTeam(Long id) {
         teamRepository.deleteById(id);
+    }
+
+    public TeamDto addMemberToTeam(Long id, Long idMember) throws Exception {
+        Optional<Team> t = teamRepository.findById(id);
+        if(t.isEmpty()) {
+            throw new Exception("team id doesn't exist");
+        }
+
+        Optional<User> u = userRepository.findById(idMember);
+        if(u.isEmpty()) {
+            throw new Exception("user id doesn't exist");
+        }
+
+        Team team = t.get();
+        User user = u.get();
+
+        team.addUser(user);
+        Team updatedTeam = teamRepository.save(team);
+
+        return toDto(updatedTeam);
+    }
+
+    public void removeMemberFromTeam(Long id, Long idMember) throws Exception {
+        Optional<Team> t = teamRepository.findById(id);
+        if(t.isEmpty()) {
+            throw new Exception("team id doesn't exist");
+        }
+
+        Optional<User> u = userRepository.findById(idMember);
+        if(u.isEmpty()) {
+            throw new Exception("user id doesn't exist");
+        }
+
+        Team team = t.get();
+        User user = u.get();
+
+        team.removeUser(user);
+        teamRepository.save(team);
     }
 
     // Mapping

@@ -35,6 +35,12 @@ public class TeamController {
         return ResponseEntity.ok(savedTeam);
     }
 
+    @PostMapping("/{id}/member/{idMember}")
+    public ResponseEntity<?> addMemberToTeam(@PathVariable Long id, @PathVariable Long idMember) throws Exception {
+        TeamDto savedTeam = teamService.addMemberToTeam(id, idMember);
+        return ResponseEntity.ok(savedTeam);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<?> updateTeam(@PathVariable Long id, @Valid @RequestBody TeamDto team) throws Exception {
         TeamDto updatedTeam = teamService.updateTeam(id, team);
@@ -44,6 +50,12 @@ public class TeamController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteTeam(@PathVariable Long id) throws Exception{
         teamService.deleteTeam(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}/member/{idMember}")
+    public ResponseEntity<?> deleteMemberFromTeam(@PathVariable Long id, @PathVariable Long idMember) throws Exception{
+        teamService.removeMemberFromTeam(id, idMember);
         return new ResponseEntity(HttpStatus.OK);
     }
 }

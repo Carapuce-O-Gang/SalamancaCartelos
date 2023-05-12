@@ -92,7 +92,7 @@ public class AuthService {
         );
 
         Set<Role> roles = new HashSet<Role>();
-        Optional<Role> userRole = roleRepository.findByName(ERole.ROLE_USER);
+        Optional<Role> userRole = roleRepository.findByName(ERole.USER);
 
         if(userRole.isEmpty()) {
             throw new Exception("user role error :(");
