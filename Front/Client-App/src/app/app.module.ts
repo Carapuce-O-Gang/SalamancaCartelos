@@ -53,6 +53,7 @@ import { HomepageComponent } from './Component/homepage/homepage.component';
 import { LoginComponent } from './Component/login/login.component';
 import { HeaderComponent } from './Component/header/header.component';
 import { ProposalComponent } from './Component/proposal/proposal.component';
+import { MyGroupComponent } from './Component/my-group/my-group.component';
 
 
 
@@ -64,7 +65,8 @@ import { ProposalComponent } from './Component/proposal/proposal.component';
     HomepageComponent,
     LoginComponent,
     HeaderComponent,
-    ProposalComponent
+    ProposalComponent,
+    MyGroupComponent,
   ],
   imports: [
     BrowserModule,
