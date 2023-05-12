@@ -21,22 +21,22 @@ services:
     volumes:
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
-  auth-service:
-    image: spring-boot
-    build:
-      context: ./salamanca-cartelos.auth-service/
-      dockerfile: Dockerfile
-    container_name: salamanca-auth-service
-    networks:
-      - private
-    restart: unless-stopped
-    ports:
-      - 8080:8080
-    expose:
-      - 8080
-    volumes:
-      - ./salamanca-cartelos.auth-service/:/usr/src/mymaven
-      # - ./salamanca-cartelos.auth-service/.m2:/root/.m2
+  # auth-service:
+  #   image: spring-boot
+  #   build:
+  #     context: ./salamanca-cartelos.auth-service/
+  #     dockerfile: Dockerfile
+  #   container_name: salamanca-auth-service
+  #   networks:
+  #     - private
+  #   restart: unless-stopped
+  #   ports:
+  #     - 8080:8080
+  #   expose:
+  #     - 8080
+  #   volumes:
+  #     - ./salamanca-cartelos.auth-service/:/usr/src/mymaven
+  #     - ./salamanca-cartelos.auth-service/.m2:/root/.m2
 
   # proposals-service:
   #   build: ./salamanca-cartelos.proposals-service/
