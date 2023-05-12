@@ -1,4 +1,6 @@
 
 .proposal {
     border: 4px solid red;
+    width: 100%;
+    height: 30vh;
 }

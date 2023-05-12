@@ -1,0 +1,25 @@
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1em;
+}
+
+.container {
+    margin: 10% 5% 5% 10%;
+    width: 80%;
+}
+
+.mat-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.teamCard {
+    margin: 1em;
+    width: 25%;
+}
+
+.team-header-image {
+    background-image: url('src/assets/image_large.png');
+    background-size: cover;
+}

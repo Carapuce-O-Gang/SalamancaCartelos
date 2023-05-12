@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-my-group',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyGroupComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  teamName: string = "Team 1";
+  teamContent: string = "This is the team 1, we are the best";
+  teamSubtitle: string = "We are team 1!"
 
   ngOnInit(): void {
+  }
+
+  openDialog(): void {
   }
 
 }

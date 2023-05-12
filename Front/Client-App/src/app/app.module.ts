@@ -110,8 +110,10 @@ import { MyGroupComponent } from './Component/my-group/my-group.component';
     FlexLayoutModule,
     AvatarModule,
     RouterModule.forRoot([
-      { path: '', component: HomepageComponent },
+      { path: 'home', component: HomepageComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'my-group', component: MyGroupComponent },
+      { path: '**', redirectTo: 'home'}
     ]),
   ],
   providers: [],
