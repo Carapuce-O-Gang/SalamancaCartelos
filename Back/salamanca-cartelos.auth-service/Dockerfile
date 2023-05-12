@@ -1,7 +1,8 @@
-FROM maven:latest
+FROM maven:3.6.3-jdk-11-slim
 
-WORKDIR /auth-service
-COPY . .
-RUN mvn clean install
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN apt-get update && apt-get install dos2unix && dos2unix /usr/local/bin/entrypoint.sh && chmod +x /usr/local/bin/entrypoint.sh
 
-CMD [ "mvn", "spring-boot:run" ]
+WORKDIR /usr/src/mymaven
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["bash"]

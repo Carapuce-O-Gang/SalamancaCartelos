@@ -21,19 +21,22 @@ services:
     volumes:
       - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
-  # auth-service:
-  #   build: ./salamanca-cartelos.auth-service/
-  #   container_name: salamanca-auth-service
-  #   command: bash -c "mvn spring-boot:run"
-  #   depends_on:
-  #     - salamanca-db
-  #   networks:
-  #     - private
-  #   restart: unless-stopped
-  #   ports:
-  #     - 8080:8080
-  #   expose:
-  #     - 8080
+  auth-service:
+    image: spring-boot
+    build:
+      context: ./salamanca-cartelos.auth-service/
+      dockerfile: Dockerfile
+    container_name: salamanca-auth-service
+    networks:
+      - private
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+    volumes:
+      - ./salamanca-cartelos.auth-service/:/usr/src/mymaven
+      # - ./salamanca-cartelos.auth-service/.m2:/root/.m2
 
   # proposals-service:
   #   build: ./salamanca-cartelos.proposals-service/
@@ -41,6 +44,7 @@ services:
   #   command: bash -c "mvn spring-boot:run"
   #   depends_on:
   #     - salamanca-db
+  #     - auth-service
   #   networks:
   #     - private
   #   restart: unless-stopped
