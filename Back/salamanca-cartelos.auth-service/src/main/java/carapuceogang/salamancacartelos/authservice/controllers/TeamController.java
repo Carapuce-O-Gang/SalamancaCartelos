@@ -1,7 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.controllers;
 
 import carapuceogang.salamancacartelos.authservice.dtos.TeamDto;
-import carapuceogang.salamancacartelos.authservice.models.Team;
 import carapuceogang.salamancacartelos.authservice.services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,7 @@ public class TeamController {
         return ResponseEntity.ok(team);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> createTeam(@Valid @RequestBody TeamDto team) throws Exception {
         TeamDto savedTeam = teamService.createTeam(team);
         return ResponseEntity.ok(savedTeam);

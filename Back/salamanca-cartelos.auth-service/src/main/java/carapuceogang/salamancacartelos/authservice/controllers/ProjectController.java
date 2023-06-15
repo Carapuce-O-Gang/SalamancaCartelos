@@ -29,7 +29,7 @@ public class ProjectController {
         return ResponseEntity.ok(project);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<?> createProject(@Valid @RequestBody ProjectDto project) throws Exception {
         ProjectDto savedProject = projectService.createProject(project);
         return ResponseEntity.ok(savedProject);
