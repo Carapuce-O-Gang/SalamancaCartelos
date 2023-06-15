@@ -18,7 +18,7 @@ public class DiscussController {
     @Autowired
     DiscussService discussService;
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Discuss>> getDiscussions() {
         List<Discuss> discussions = discussService.getDiscussions();
         return ResponseEntity.ok(discussions);

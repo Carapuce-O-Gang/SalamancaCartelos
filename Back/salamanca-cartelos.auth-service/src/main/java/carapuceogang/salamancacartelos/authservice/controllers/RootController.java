@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class RootController {
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<RootDto> getRoot() {
         RootDto root = new RootDto("auth-service", "1.0");
         return ResponseEntity.ok(root);

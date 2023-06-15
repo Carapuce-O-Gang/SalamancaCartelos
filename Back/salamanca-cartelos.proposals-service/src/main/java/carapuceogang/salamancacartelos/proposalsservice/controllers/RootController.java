@@ -12,7 +12,7 @@ import carapuceogang.salamancacartelos.proposalsservice.dtos.StatusDto;
 @RequestMapping("/api")
 public class RootController {
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<RootDto> getRoot() {
         RootDto root = new RootDto("proposals-service", "1.0");
         return ResponseEntity.ok(root);

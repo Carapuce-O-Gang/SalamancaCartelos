@@ -18,7 +18,7 @@ public class VoteController {
     @Autowired
     VoteService voteService;
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Vote>> getVotes() {
         List<Vote> votes = voteService.getVotes();
         return ResponseEntity.ok(votes);

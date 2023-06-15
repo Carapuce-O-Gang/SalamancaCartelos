@@ -18,7 +18,7 @@ public class ProposalController {
     @Autowired
     ProposalService proposalService;
 
-    @GetMapping("")
+    @GetMapping
     public ResponseEntity<List<Proposal>> getProposals() {
         List<Proposal> proposals = proposalService.getProposals();
         return ResponseEntity.ok(proposals);
