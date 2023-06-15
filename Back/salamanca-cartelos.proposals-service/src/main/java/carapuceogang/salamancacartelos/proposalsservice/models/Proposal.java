@@ -1,4 +1,4 @@
-package salamancacartelos.proposalsservice.models;
+package carapuceogang.salamancacartelos.proposalsservice.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;

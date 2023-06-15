@@ -1,12 +1,12 @@
-package salamancacartelos.proposalsservice.models;
+package carapuceogang.salamancacartelos.proposalsservice.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "votes")
-public class Vote {
+@Table(name = "discussions")
+public class Discuss {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,13 +16,13 @@ public class Vote {
     private Long userId;
 
     @NotBlank
-    private Boolean isVoted;
+    private String message;
 
-    public Vote() {}
+    public Discuss() {}
 
-    public Vote(Long userId, Boolean isVoted) {
+    public Discuss(Long userId, String message) {
         this.userId = userId;
-        this.isVoted = isVoted;
+        this.message = message;
     }
 
     public Long getId() {
@@ -41,11 +41,11 @@ public class Vote {
         this.userId = userId;
     }
 
-    public Boolean getVoted() {
-        return isVoted;
+    public String getMessage() {
+        return message;
     }
 
-    public void setVoted(Boolean voted) {
-        isVoted = voted;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

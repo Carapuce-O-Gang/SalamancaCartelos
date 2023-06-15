@@ -17,7 +17,7 @@ public class TeamController {
     @Autowired
     TeamService teamService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<List<TeamDto>> getTeams() {
         List<TeamDto> teams = teamService.getTeams();
         return ResponseEntity.ok(teams);

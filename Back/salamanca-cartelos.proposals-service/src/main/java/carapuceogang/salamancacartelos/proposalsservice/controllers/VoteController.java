@@ -1,4 +1,4 @@
-package salamancacartelos.proposalsservice.controllers;
+package carapuceogang.salamancacartelos.proposalsservice.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,8 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import salamancacartelos.proposalsservice.models.Vote;
-import salamancacartelos.proposalsservice.services.VoteService;
+
+import carapuceogang.salamancacartelos.proposalsservice.models.Vote;
+import carapuceogang.salamancacartelos.proposalsservice.services.VoteService;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class VoteController {
     @Autowired
     VoteService voteService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<List<Vote>> getVotes() {
         List<Vote> votes = voteService.getVotes();
         return ResponseEntity.ok(votes);

@@ -1,12 +1,11 @@
-package salamancacartelos.proposalsservice.services;
+package carapuceogang.salamancacartelos.proposalsservice.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import salamancacartelos.proposalsservice.dtos.DiscussDto;
-import salamancacartelos.proposalsservice.dtos.ProposalDto;
-import salamancacartelos.proposalsservice.models.Discuss;
-import salamancacartelos.proposalsservice.models.Proposal;
-import salamancacartelos.proposalsservice.repositories.DiscussRepository;
+
+import carapuceogang.salamancacartelos.proposalsservice.dtos.DiscussDto;
+import carapuceogang.salamancacartelos.proposalsservice.models.Discuss;
+import carapuceogang.salamancacartelos.proposalsservice.repositories.DiscussRepository;
 
 import java.util.List;
 import java.util.Optional;

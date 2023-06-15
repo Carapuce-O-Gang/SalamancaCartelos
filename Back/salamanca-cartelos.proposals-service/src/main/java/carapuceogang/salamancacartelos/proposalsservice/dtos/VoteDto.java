@@ -1,6 +1,4 @@
-package salamancacartelos.proposalsservice.dtos;
-
-import javax.validation.constraints.NotBlank;
+package carapuceogang.salamancacartelos.proposalsservice.dtos;
 
 public class VoteDto {
     private Long userId;

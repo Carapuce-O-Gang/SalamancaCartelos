@@ -1,4 +1,4 @@
-package salamancacartelos.proposalsservice.dtos;
+package carapuceogang.salamancacartelos.proposalsservice.dtos;
 
 public class DiscussDto {
     private Long userId;

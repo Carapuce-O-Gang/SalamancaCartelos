@@ -17,7 +17,7 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<List<ProjectDto>> getProjects() {
         List<ProjectDto> projects = projectService.getProjects();
         return ResponseEntity.ok(projects);

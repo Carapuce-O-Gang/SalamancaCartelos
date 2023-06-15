@@ -1,4 +1,4 @@
-package salamancacartelos.proposalsservice;
+package carapuceogang.salamancacartelos.proposalsservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
