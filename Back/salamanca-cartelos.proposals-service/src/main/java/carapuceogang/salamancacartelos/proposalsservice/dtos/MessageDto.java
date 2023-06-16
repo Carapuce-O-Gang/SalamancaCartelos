@@ -1,11 +1,10 @@
 package carapuceogang.salamancacartelos.proposalsservice.dtos;
 
-public class ProposalDto {
+public class MessageDto {
     private Long id;
-    private String title;
     private String content;
-    private Long projectId;
     private Long userId;
+    private DiscussionDto discussion;
 
     public Long getId() {
         return id;
@@ -13,14 +12,6 @@ public class ProposalDto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getContent() {
@@ -39,11 +30,11 @@ public class ProposalDto {
         this.userId = userId;
     }
 
-    public Long getProjectId() {
-        return projectId;
+    public DiscussionDto getDiscussion() {
+        return discussion;
     }
 
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
+    public void setDiscussion(DiscussionDto discussion) {
+        this.discussion = discussion;
     }
 }

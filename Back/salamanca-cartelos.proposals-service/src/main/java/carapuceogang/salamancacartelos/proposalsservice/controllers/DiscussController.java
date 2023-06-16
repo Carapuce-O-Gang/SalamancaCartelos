@@ -7,26 +7,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import carapuceogang.salamancacartelos.proposalsservice.models.Discuss;
-import carapuceogang.salamancacartelos.proposalsservice.services.DiscussService;
+import carapuceogang.salamancacartelos.proposalsservice.dtos.DiscussionDto;
+import carapuceogang.salamancacartelos.proposalsservice.services.DiscussionService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/discuss")
+@RequestMapping("/api/discussion")
 public class DiscussController {
     @Autowired
-    DiscussService discussService;
+    DiscussionService discussionService;
 
     @GetMapping
-    public ResponseEntity<List<Discuss>> getDiscussions() {
-        List<Discuss> discussions = discussService.getDiscussions();
+    public ResponseEntity<List<DiscussionDto>> getDiscussions() {
+        List<DiscussionDto> discussions = discussionService.getDiscussions();
         return ResponseEntity.ok(discussions);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Discuss> getDiscuss(@PathVariable Long id) throws Exception {
-        Discuss discuss = discussService.getDiscuss(id);
-        return ResponseEntity.ok(discuss);
+    public ResponseEntity<DiscussionDto> getDiscussion(@PathVariable Long id) throws Exception {
+        DiscussionDto discussion = discussionService.getDiscussion(id);
+        return ResponseEntity.ok(discussion);
     }
 }

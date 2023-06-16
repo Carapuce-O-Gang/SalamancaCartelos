@@ -1,10 +1,11 @@
 package carapuceogang.salamancacartelos.authservice;
 
-import carapuceogang.salamancacartelos.authservice.services.MappingService;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import carapuceogang.salamancacartelos.authservice.services.MappingService;
 
 @SpringBootApplication
 public class Application {

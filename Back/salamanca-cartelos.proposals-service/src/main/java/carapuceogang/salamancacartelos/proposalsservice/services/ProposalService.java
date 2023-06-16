@@ -1,5 +1,6 @@
 package carapuceogang.salamancacartelos.proposalsservice.services;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,51 +16,62 @@ public class ProposalService {
     @Autowired
     ProposalRepository proposalRepository;
 
-    public List<Proposal> getProposals() {
-        return proposalRepository.findAll();
+    @Autowired
+    ModelMapper modelMapper;
+
+    public List<ProposalDto> getProposals() {
+        return toList(proposalRepository.findAll());
     }
 
-    public Proposal getProposal(Long id) throws Exception {
+    public ProposalDto getProposal(Long id) throws Exception {
         Optional<Proposal> proposal = proposalRepository.findById(id);
 
         if(proposal.isEmpty()) {
-            throw new Exception("proposal not found");
+            throw new Exception("proposal doesn't exist");
         }
 
-        return proposal.get();
+        return toDto(proposal.get());
     }
 
-    public Proposal createProposal(ProposalDto proposalDto) throws Exception {
-        if (proposalDto.getTitle() != null && proposalRepository.existsByTitle(proposalDto.getTitle())) {
-            throw new Exception("proposal title already exist");
+    public ProposalDto createProposal(ProposalDto proposal) throws Exception {
+        if (proposal.getTitle() != null && proposalRepository.existsByTitle(proposal.getTitle())) {
+            throw new Exception("proposal already exist");
         }
 
-        Proposal proposal = new Proposal();
-        proposal.setTitle(proposalDto.getTitle());
-        proposal.setContent(proposalDto.getContent());
+        Proposal savedProposal = proposalRepository.save(toModel(proposal));
 
-        return proposalRepository.save(proposal);
+        return toDto(savedProposal);
     }
 
-    public Proposal updateProposal(Long id, ProposalDto proposalDto) throws Exception {
+    public ProposalDto updateProposal(Long id, ProposalDto proposal) throws Exception {
         if (!proposalRepository.existsById(id)) {
             throw new Exception("proposal doesn't exist");
         }
 
         Optional<Proposal> p = proposalRepository.findById(id);
-
         if (p.isEmpty()) {
             throw new Exception("proposal doesn't exist");
         }
 
-        Proposal proposal = p.get();
-        proposal.setTitle(proposalDto.getTitle());
-        proposal.setContent(proposalDto.getContent());
+        Proposal savedProposal = proposalRepository.save(toModel(proposal));
 
-        return proposalRepository.save(proposal);
+        return toDto(savedProposal);
     }
 
     public void deleteProposal(Long id) {
         proposalRepository.deleteById(id);
+    }
+
+    // Mapping
+    public List<ProposalDto> toList(List<Proposal> proposals) {
+        return MappingService.map(proposals, ProposalDto.class, modelMapper);
+    }
+
+    public ProposalDto toDto(Proposal proposal) {
+        return MappingService.map(proposal, ProposalDto.class, modelMapper);
+    }
+
+    public Proposal toModel(ProposalDto proposal) {
+        return MappingService.map(proposal, Proposal.class, modelMapper);
     }
 }

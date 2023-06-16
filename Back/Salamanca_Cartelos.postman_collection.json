@@ -572,7 +572,7 @@
 					]
 				},
 				{
-					"name": "discuss",
+					"name": "discussion",
 					"item": [
 						{
 							"name": "Get all discussions",
@@ -593,7 +593,7 @@
 							"response": []
 						},
 						{
-							"name": "Get discuss by id",
+							"name": "Get discussion by id",
 							"request": {
 								"method": "GET",
 								"header": [],
@@ -617,7 +617,7 @@
 							"response": []
 						},
 						{
-							"name": "Add discuss",
+							"name": "Add discussion",
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -635,7 +635,7 @@
 							"response": []
 						},
 						{
-							"name": "Edit discuss by id",
+							"name": "Edit discussion by id",
 							"request": {
 								"method": "PUT",
 								"header": [],
@@ -659,7 +659,7 @@
 							"response": []
 						},
 						{
-							"name": "Delete discuss by id",
+							"name": "Delete discussion by id",
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -883,7 +883,7 @@
 		},
 		{
 			"key": "DISCUSS_ROUTE",
-			"value": "api/discuss",
+			"value": "api/discussion",
 			"type": "string"
 		},
 		{

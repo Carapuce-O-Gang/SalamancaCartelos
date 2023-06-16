@@ -1,7 +1,6 @@
 package carapuceogang.salamancacartelos.authservice.controllers;
 
 import carapuceogang.salamancacartelos.authservice.dtos.ProjectDto;
-import carapuceogang.salamancacartelos.authservice.models.Project;
 import carapuceogang.salamancacartelos.authservice.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

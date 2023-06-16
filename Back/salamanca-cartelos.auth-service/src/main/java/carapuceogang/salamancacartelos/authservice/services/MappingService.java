@@ -18,6 +18,7 @@ public class MappingService {
         ProjectToProjectDto(modelMapper);
         UserToUserDto(modelMapper);
         TeamToTeamDto(modelMapper);
+        TeamDtoToTeam(modelMapper);
     }
 
     public static <O, I> List<O> map(final List<I> list, Class<O> outputClass, ModelMapper mapper) {

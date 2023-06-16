@@ -7,7 +7,7 @@ import java.util.Set;
 public class TeamDto {
     private Long id;
     private String name;
-    private Set<User> users;
+    private Set<UserDto> users;
     private ProjectDto project;
 
     public Long getId() {
@@ -26,11 +26,11 @@ public class TeamDto {
         this.name = name;
     }
 
-    public Set<User> getUsers() {
+    public Set<UserDto> getUsers() {
         return users;
     }
 
-    public void setUsers(Set<User> users) {
+    public void setUsers(Set<UserDto> users) {
         this.users = users;
     }
 
