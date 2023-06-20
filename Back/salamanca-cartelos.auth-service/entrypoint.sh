@@ -1,0 +1,3 @@
+#!/bin/sh
+
+mvn -e spring-boot:run

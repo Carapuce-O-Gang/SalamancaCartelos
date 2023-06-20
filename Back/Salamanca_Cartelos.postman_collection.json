@@ -1,0 +1,895 @@
+{
+	"info": {
+		"_postman_id": "7e6ec3e1-e0b5-46dd-87ec-42de4ab29331",
+		"name": "Salamanca Cartelos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14839676",
+		"_collection_link": "https://carapuceogange.postman.co/workspace/Carapuce-O-Gang~185aa762-e6a2-4f2d-b9e7-384564b36fbf/collection/14839676-7e6ec3e1-e0b5-46dd-87ec-42de4ab29331?action=share&creator=14839676&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "auth-service",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "Sign Up",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"username\": \"alexandre\",\r\n\t\"mail\": \"alexandre@gmail.com\",\r\n\t\"password\": \"password2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{AUTH_ROUTE}}/sign-up",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{AUTH_ROUTE}}",
+										"sign-up"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign In",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"username\": \"florian\",\r\n\t\"password\": \"password1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{AUTH_ROUTE}}/sign-in",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{AUTH_ROUTE}}",
+										"sign-in"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign Out",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{AUTH_ROUTE}}/sign-out",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{AUTH_ROUTE}}",
+										"sign-out"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "project",
+					"item": [
+						{
+							"name": "Get all projects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{PROJECT_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get project by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/:id",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{PROJECT_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add project",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"project_rachel_roxxx\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{PROJECT_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit project by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"2 Girls 1 Cup remastered\",\r\n\t\"teams\": [\r\n\t\t{\r\n\t\t\t\"id\": 7,\r\n\t\t\t\"name\": \"Beeg\",\r\n\t\t\t\"users\": []\r\n\t\t}\r\n\t]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/:id",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{PROJECT_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete project by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/:id",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{PROJECT_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "team",
+					"item": [
+						{
+							"name": "Get all teams",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get team by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add team",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"lenoir\",\r\n\t\"project\": { \"id\": 1 },\r\n\t\"users\": [\r\n\t\t{ \"id\": 1 },\r\n\t\t{ \"id\": 2 }\r\n\t]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add member to team by id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id/member/:idMember",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										":id",
+										"member",
+										":idMember"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "idMember",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit team by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"id\": 1,\r\n\t\"name\": \"lezarab\",\r\n\t\"users\": [\r\n\t\t{ \"id\": 1 },\r\n\t\t{ \"id\": 2 }\r\n\t]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete team by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"name\": \"RedTube\",\r\n\t\"project\": { \"id\": 5 }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete member from team by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id/member/:idMember",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										":id",
+										"member",
+										":idMember"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "idMember",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "key",
+						"value": "AUTH_KEY",
+						"type": "string"
+					},
+					{
+						"key": "value",
+						"value": "{{AUTH_KEY}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "proposals-service",
+			"item": [
+				{
+					"name": "proposal",
+					"item": [
+						{
+							"name": "Get all proposals",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get proposal by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add proposal",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit proposal by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete proposal by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "discussion",
+					"item": [
+						{
+							"name": "Get all discussions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get discussion by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add discussion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit discussion by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete discussion by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "vote",
+					"item": [
+						{
+							"name": "Get all votes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get vote by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add vote",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit vote by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete vote by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{API_KEY}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "API_KEY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DOMAIN",
+			"value": "http://localhost",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_SERVICE",
+			"value": "{{DOMAIN}}:8080",
+			"type": "string"
+		},
+		{
+			"key": "PROPOSALS_SERVICE",
+			"value": "{{DOMAIN}}:8081",
+			"type": "string"
+		},
+		{
+			"key": "API_KEY",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_KEY",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_ROUTE",
+			"value": "api/auth",
+			"type": "string"
+		},
+		{
+			"key": "PROJECT_ROUTE",
+			"value": "api/project",
+			"type": "string"
+		},
+		{
+			"key": "TEAM_ROUTE",
+			"value": "api/team",
+			"type": "string"
+		},
+		{
+			"key": "PROPOSAL_ROUTE",
+			"value": "api/proposal",
+			"type": "string"
+		},
+		{
+			"key": "DISCUSS_ROUTE",
+			"value": "api/discussion",
+			"type": "string"
+		},
+		{
+			"key": "VOTE_ROUTE",
+			"value": "api/vote",
+			"type": "string"
+		}
+	]
+}
