@@ -1,11 +1,11 @@
-package carapuceogang.salamancacartelos.authservice;
+package carapuceogang.salamancacartelos.proposalsservice;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import carapuceogang.salamancacartelos.authservice.services.MappingService;
+import carapuceogang.salamancacartelos.proposalsservice.services.MappingService;
 
 @SpringBootApplication
 public class Application {
@@ -19,4 +19,5 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
+
 }

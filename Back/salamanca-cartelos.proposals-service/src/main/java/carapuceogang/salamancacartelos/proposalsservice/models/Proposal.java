@@ -1,4 +1,4 @@
-package salamancacartelos.proposalsservice.models;
+package carapuceogang.salamancacartelos.proposalsservice.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -27,13 +27,18 @@ public class Proposal {
     @NotBlank
     private String content;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "discussion_id")
+    private Discussion discussion;
+
     public Proposal() {}
 
-    public Proposal(Long userId, Long projectId, String title, String content) {
+    public Proposal(Long userId, Long projectId, String title, String content, Discussion discussion) {
         this.userId = userId;
         this.projectId = projectId;
         this.title = title;
         this.content = content;
+        this.discussion = discussion;
     }
 
     public Long getId() {
@@ -74,5 +79,13 @@ public class Proposal {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Discussion getDiscussion() {
+        return discussion;
+    }
+
+    public void setDiscussion(Discussion discussion) {
+        this.discussion = discussion;
     }
 }

@@ -20,7 +20,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"username\": \"zizi\",\r\n\t\"mail\": \"zizi@gmail.com\",\r\n\t\"password\": \"ilovepussy\"\r\n}",
+									"raw": "{\r\n\t\"username\": \"alexandre\",\r\n\t\"mail\": \"alexandre@gmail.com\",\r\n\t\"password\": \"password2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -47,7 +47,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"username\": \"johnny_sin\",\r\n\t\"password\": \"ilovepussy\"\r\n}",
+									"raw": "{\r\n\t\"username\": \"florian\",\r\n\t\"password\": \"password1\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -114,13 +114,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/8",
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/:id",
 									"host": [
 										"{{AUTH_SERVICE}}"
 									],
 									"path": [
 										"{{PROJECT_ROUTE}}",
-										"8"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -133,7 +139,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"name\": \"nasty girl remove all on her\"\r\n}",
+									"raw": "{\r\n\t\"name\": \"project_rachel_roxxx\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -168,13 +174,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/8",
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/:id",
 									"host": [
 										"{{AUTH_SERVICE}}"
 									],
 									"path": [
 										"{{PROJECT_ROUTE}}",
-										"8"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -186,13 +198,19 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/1",
+									"raw": "{{AUTH_SERVICE}}/{{PROJECT_ROUTE}}/:id",
 									"host": [
 										"{{AUTH_SERVICE}}"
 									],
 									"path": [
 										"{{PROJECT_ROUTE}}",
-										"1"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -227,13 +245,19 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/7",
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id",
 									"host": [
 										"{{AUTH_SERVICE}}"
 									],
 									"path": [
 										"{{TEAM_ROUTE}}",
-										"7"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -246,7 +270,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"name\": \"RedTube\",\r\n\t\"project\": { \"id\": 5 }\r\n}",
+									"raw": "{\r\n\t\"name\": \"lenoir\",\r\n\t\"project\": { \"id\": 1 },\r\n\t\"users\": [\r\n\t\t{ \"id\": 1 },\r\n\t\t{ \"id\": 2 }\r\n\t]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -267,13 +291,43 @@
 							"response": []
 						},
 						{
+							"name": "Add member to team by id",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id/member/:idMember",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										":id",
+										"member",
+										":idMember"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "idMember",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Edit team by id",
 							"request": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"name\": \"Beeg\",\r\n\t\"users\": [\r\n\t\t{\r\n\t\t\t\"id\": 1,\r\n\t\t\t\"username\": \"johnny_sin\",\r\n\t\t\t\"mail\": \"johnny.sin@gmail.com\"\r\n\t\t}\r\n\t]\r\n}",
+									"raw": "{\r\n\t\"id\": 1,\r\n\t\"name\": \"lezarab\",\r\n\t\"users\": [\r\n\t\t{ \"id\": 1 },\r\n\t\t{ \"id\": 2 }\r\n\t]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -281,13 +335,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/7",
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id",
 									"host": [
 										"{{AUTH_SERVICE}}"
 									],
 									"path": [
 										"{{TEAM_ROUTE}}",
-										"7"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -308,13 +368,49 @@
 									}
 								},
 								"url": {
-									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/7",
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id",
 									"host": [
 										"{{AUTH_SERVICE}}"
 									],
 									"path": [
 										"{{TEAM_ROUTE}}",
-										"7"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete member from team by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{AUTH_SERVICE}}/{{TEAM_ROUTE}}/:id/member/:idMember",
+									"host": [
+										"{{AUTH_SERVICE}}"
+									],
+									"path": [
+										"{{TEAM_ROUTE}}",
+										":id",
+										"member",
+										":idMember"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										},
+										{
+											"key": "idMember",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -389,13 +485,85 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/1",
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/:id",
 									"host": [
 										"{{PROPOSALS_SERVICE}}"
 									],
 									"path": [
 										"{{PROPOSAL_ROUTE}}",
-										"1"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add proposal",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit proposal by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete proposal by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{PROPOSAL_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{PROPOSAL_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -404,7 +572,7 @@
 					]
 				},
 				{
-					"name": "discuss",
+					"name": "discussion",
 					"item": [
 						{
 							"name": "Get all discussions",
@@ -425,18 +593,90 @@
 							"response": []
 						},
 						{
-							"name": "Get discuss by id",
+							"name": "Get discussion by id",
 							"request": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/1",
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/:id",
 									"host": [
 										"{{PROPOSALS_SERVICE}}"
 									],
 									"path": [
 										"{{DISCUSS_ROUTE}}",
-										"1"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add discussion",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit discussion by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete discussion by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{DISCUSS_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{DISCUSS_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -471,13 +711,85 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/1",
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/:id",
 									"host": [
 										"{{PROPOSALS_SERVICE}}"
 									],
 									"path": [
 										"{{VOTE_ROUTE}}",
-										"1"
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add vote",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit vote by id",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete vote by id",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{PROPOSALS_SERVICE}}/{{VOTE_ROUTE}}/:id",
+									"host": [
+										"{{PROPOSALS_SERVICE}}"
+									],
+									"path": [
+										"{{VOTE_ROUTE}}",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
 									]
 								}
 							},
@@ -571,7 +883,7 @@
 		},
 		{
 			"key": "DISCUSS_ROUTE",
-			"value": "api/discuss",
+			"value": "api/discussion",
 			"type": "string"
 		},
 		{

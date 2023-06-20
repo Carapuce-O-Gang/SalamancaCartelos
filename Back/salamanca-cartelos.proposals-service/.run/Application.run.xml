@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="salamancacartelos.proposalsservice.Application" />
+    <option name="MAIN_CLASS_NAME" value="carapuceogang.salamancacartelos.proposalsservice.Application" />
     <module name="proposals-service" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="salamancacartelos.proposalsservice.*" />
+        <option name="PATTERN" value="carapuceogang.salamancacartelos.proposalsservice.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
